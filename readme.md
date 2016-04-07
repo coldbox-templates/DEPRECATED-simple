@@ -1,4 +1,4 @@
-# Advanced Template
+# Simple Template
 
 A simple ColdBox MVC template
 
