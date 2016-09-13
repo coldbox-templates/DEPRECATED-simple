@@ -23,6 +23,7 @@
 			missingTemplateHandler	= "",
 
 			//Error/Exception Handling
+			invalidHTTPMethodHandler = "",
 			exceptionHandler		= "",
 			onInvalidEvent			= "",
 			customErrorTemplate		= "",
