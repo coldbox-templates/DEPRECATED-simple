@@ -2,8 +2,6 @@ component output="false" extends="coldbox.system.EventHandler" {
 
 	// Default Action 
 	function index(){
-		dump(controller.getInterceptorService().getInterceptor("Ses").getRoutes());
-		abort;
 		prc.welcomeMessage = "Welcome to ColdBox!";
 		event.setView("main/index");
 	}
