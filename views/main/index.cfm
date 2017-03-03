@@ -32,7 +32,7 @@
 		</div>
 		<p>
 			You can click on the following event handlers to execute their default action
-			<span class="label label-important">index()</span>
+			<span class="label label-danger">index()</span>
 		</p>
 		<ul>
 			<cfloop list="#getSetting("RegisteredHandlers")#" index="handler">

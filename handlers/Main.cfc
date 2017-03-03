@@ -1,55 +1,49 @@
-component output="false" extends="coldbox.system.EventHandler" {
+component extends="coldbox.system.EventHandler"{
 
-	// Default Action 
-	function index(){
+	// Default Action
+	function index( event, rc, prc ){
 		prc.welcomeMessage = "Welcome to ColdBox!";
 		event.setView("main/index");
 	}
 
-	// Do Something Action 
-	function doSomething(){
-
+	// Do something
+	function doSomething( event, rc, prc ){
 		setNextEvent("main.index");
+	}
+
+	/************************************** IMPLICIT ACTIONS *********************************************/
+
+	function onAppInit( event, rc, prc ){
 
 	}
 
-	/* ------------------------------------------- GLOBAL IMPLICIT EVENTS ONLY ------------------------------------------
- 	--- In order for these events to fire, you must declare them in the ColdBox.cfc */
-
-	function onAppInit(evet,rc,prc){
+	function onRequestStart( event, rc, prc ){
 
 	}
 
-	function onRequestStart(evet,rc,prc){
+	function onRequestEnd( event, rc, prc ){
 
 	}
 
-	function onRequestEnd(evet,rc,prc){
+	function onSessionStart( event, rc, prc ){
 
 	}
 
-	function onSessionStart(evet,rc,prc){
+	function onSessionEnd( event, rc, prc ){
+		var sessionScope = event.getValue("sessionReference");
+		var applicationScope = event.getValue("applicationReference");
+	}
+
+	function onException( event, rc, prc ){
+		//Grab Exception From private request collection, placed by ColdBox Exception Handling
+		var exception = prc.exception;
+		//Place exception handler below:
 
 	}
 
-	function onSessionEnd(evet,rc,prc){
-
-		sessionScope = event.getValue("sessionReference");
-		applicationScope = event.getValue("applicationReference");
-
-	}
-
-	function onException(evet,rc,prc){
-
-			//Grab Exception From private request collection, placed by ColdBox Exception Handling
-			var exception = prc.exception;
-			//Place exception handler below:
-
-	}
-
-	function onMissingTemplate(evet,rc,prc){
-			//Grab missingTemplate From request collection, placed by ColdBox
-			var missingTemplate = event.getValue("missingTemplate");
+	function onMissingTemplate( event, rc, prc ){
+		//Grab missingTemplate From request collection, placed by ColdBox
+		var missingTemplate = event.getValue("missingTemplate");
 
 	}
 
