@@ -12,6 +12,8 @@ component{
 
 	// COLDBOX STATIC PROPERTY, DO NOT CHANGE UNLESS THIS IS NOT THE ROOT OF YOUR COLDBOX APP
 	COLDBOX_APP_ROOT_PATH = getDirectoryFromPath( getCurrentTemplatePath() );
+        // to ensure /codebox is defined so that it will run even when it is in a folder
+	this.mappings["/coldbox"] = expandPath(COLDBOX_APP_ROOT_PATH & "coldbox/");    
 	// The web server mapping to this application. Used for remote purposes or static purposes
 	COLDBOX_APP_MAPPING   = "";
 	// COLDBOX PROPERTIES
