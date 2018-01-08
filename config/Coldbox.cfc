@@ -25,7 +25,7 @@
 			//Error/Exception Handling
 			invalidHTTPMethodHandler = "",
 			exceptionHandler		= "",
-			onInvalidEvent			= "",
+			invalidEventHandler			= "",
 			customErrorTemplate		= "",
 
 			//Application Aspects
