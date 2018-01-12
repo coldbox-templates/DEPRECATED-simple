@@ -8,7 +8,7 @@ component extends="coldbox.system.EventHandler"{
 
 	// Do something
 	function doSomething( event, rc, prc ){
-		setNextEvent("main.index");
+		relocate( "main.index" );
 	}
 
 	/************************************** IMPLICIT ACTIONS *********************************************/
