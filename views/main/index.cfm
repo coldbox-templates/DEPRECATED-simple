@@ -50,7 +50,7 @@
 		<p>Below are your application's loaded modules, click on them to visit them.</p>
 		<ul>
 			<cfloop collection="#getSetting("Modules")#" item="thisModule">
-			<li><a href="#event.buildLink( getModuleConfig( thisModule ).entryPoint )#">#thisModule#</a></li>
+			<li><a href="#event.buildLink( getModuleConfig( thisModule ).inheritedEntryPoint )#">#thisModule#</a></li>
 			</cfloop>
 		</ul>
 		<cfif structCount( getSetting("Modules") ) eq 0>
