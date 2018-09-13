@@ -1,8 +1,8 @@
 ﻿<cfoutput>
-<div class="jumbotron">
+<div class="jumbotron mt-sm-5 p-4">
 	<div class="row">
-		<div class="col-md-5">
-			<img src="includes/images/ColdBoxLogo2015_300.png" class="pull-left margin10" alt="logo"/>
+		<div class="col-lg-5 col-md-6">
+			<img src="includes/images/ColdBoxLogo2015_300.png" class="float-left m-2 mt-5" alt="logo"/>
 			<p class="text-center">
 				<a class="btn btn-primary" href="http://coldbox.ortusbooks.com" target="_blank" title="Read our ColdBox Manual" rel="tooltip">
 					<strong>Read ColdBox Manual</strong>
@@ -10,9 +10,9 @@
 			</p>
 		</div>
 
-		<div class="col-md-7">
-			<h1>#prc.welcomeMessage#</h1>
-			<p>
+		<div class="col-lg-7 col-md-6">
+			<h1 class="display-3">#prc.welcomeMessage#</h1>
+			<p class="lead">
 				You are now running <strong>#getSetting("codename",1)# #getSetting("version",1)# (#getsetting("suffix",1)#)</strong>.
 				Welcome to the next generation of ColdFusion (CFML) applications.  You can now start building your application with ease, we already did the hard work
 				for you.
@@ -22,17 +22,17 @@
 </div>
 
 <div class="row">
-	<div class="col-md-9">
+	<div class="col-lg-9">
 
 		<section id="eventHandlers">
-		<div class="page-header">
+		<div class="pb-2 mt-4 mb-2 border-bottom">
 			<h2>
 				Registered Event Handlers
 			</h2>
 		</div>
 		<p>
 			You can click on the following event handlers to execute their default action
-			<span class="label label-danger">index()</span>
+			<span class="badge badge-danger">index()</span>
 		</p>
 		<ul>
 			<cfloop list="#getSetting("RegisteredHandlers")#" index="handler">
@@ -42,7 +42,7 @@
 		</section>
 
 		<section id="modules">
-		<div class="page-header">
+		<div class="pb-2 mt-4 mb-2 border-bottom">
 	        <h2>
 	        	Registered Modules
 			</h2>
@@ -59,7 +59,7 @@
 		</section>
 
 		<section id="test-harness">
-		<div class="page-header">
+		<div class="pb-2 mt-4 mb-2 border-bottom">
 			<h2>
 				Application Test Harness
 			</h2>
@@ -116,7 +116,7 @@
 		</section>
 
 		<section id="urlActions">
-		<div class="page-header">
+		<div class="pb-2 mt-4 mb-2 border-bottom">
        		<h2>ColdBox URL Actions</h2>
 	   	</div>
 		<p>ColdBox can use some very important URL actions to interact with your application. You can try them out below:</p>
@@ -142,7 +142,7 @@
 		</section>
 
 		<section id="customize">
-		<div class="page-header">
+		<div class="pb-2 mt-4 mb-2 border-bottom">
 			<h2>Customizing your Application</h2>
         </div>
 		<p>
@@ -190,50 +190,50 @@
 	</div>
 
 	<!---Side Bar --->
-	<div class="col-md-3">
-		<div class="well">
-			<ul class="nav nav-list">
-				<li><strong>Important Links</strong></li>
-				<li>
-	                <a href="http://www.coldbox.org">ColdBox Site</a>
+	<div class="col-lg-3">
+		<div class="card card-block">
+			<ul class="card-body nav flex-column bg-light">
+				<li class="nav-item"><strong>Important Links</strong></li>
+				<li class="nav-item">
+	                <a class="nav-link" href="http://www.coldbox.org">ColdBox Site</a>
 	            </li>
-	            <li>
-	                <a href="http://blog.coldbox.org">Blog</a>
+	            <li class="nav-item">
+	                <a class="nav-link" href="http://blog.coldbox.org">Blog</a>
 	            </li>
-	            <li>
-	                <a href="https://ortussolutions.atlassian.net/browse/COLDBOX">Issue Tracker</a>
+	            <li class="nav-item">
+	                <a class="nav-link" href="https://ortussolutions.atlassian.net/browse/COLDBOX">Issue Tracker</a>
 	            </li>
-				<li>
-	                <a href="https://github.com/ColdBox/coldbox-platform">Source Code</a>
+				<li class="nav-item">
+	                <a class="nav-link" href="https://github.com/ColdBox/coldbox-platform">Source Code</a>
 	            </li>
-				<li>
-	                <a href="http://coldbox.ortusbooks.com">Manual</a>
+				<li class="nav-item">
+	                <a class="nav-link" href="http://coldbox.ortusbooks.com">Manual</a>
 	            </li>
-				<li>
-					<a href="http://apidocs.coldbox.org">Quick API Docs</a>
+				<li class="nav-item">
+					<a class="nav-link" href="http://apidocs.coldbox.org">Quick API Docs</a>
 				</li>
-				<li>
-					<a href="http://www.coldbox.org/forgebox" rel="tooltip" title="Community for interceptors, modules, etc.">ForgeBox</a>
+				<li class="nav-item">
+					<a class="nav-link" href="http://www.coldbox.org/forgebox" rel="tooltip" title="Community for interceptors, modules, etc.">ForgeBox</a>
 				</li>
-				<li><strong>Training</strong></li>
-	            <li>
-	                <a href="http://www.ortussolutions.com/services/training">Course Catalog</a>
+				<li class="nav-item"><strong>Training</strong></li>
+	            <li class="nav-item">
+	                <a class="nav-link" href="http://www.ortussolutions.com/services/training">Course Catalog</a>
 	            </li>
-				<li>
-					<a href="http://coldbox.org/media">Training Videos</a>
+				<li class="nav-item">
+					<a class="nav-link" href="http://coldbox.org/media">Training Videos</a>
 				</li>
-				<li>
-					<a href="http://coldbox.org/media/connection">ColdBox Connection</a>
+				<li class="nav-item">
+					<a class="nav-link" href="http://coldbox.org/media/connection">ColdBox Connection</a>
 				</li>
-	            <li><strong>Support</strong></li>
-	            <li>
-	                <a href="http://groups.google.com/group/coldbox">Mailing List</a>
+	            <li class="nav-item"><strong>Support</strong></li>
+	            <li class="nav-item">
+	                <a class="nav-link" href="http://groups.google.com/group/coldbox">Mailing List</a>
 	            </li>
-				<li>
-					<a href="http://www.coldbox.org/support/overview">Community Support</a>
+				<li class="nav-item">
+					<a class="nav-link" href="http://www.coldbox.org/support/overview">Community Support</a>
 				</li>
-				<li>
-					<a href="http://www.ortussolutions.com/services">Professional Support</a>
+				<li class="nav-item">
+					<a class="nav-link" href="http://www.ortussolutions.com/services">Professional Support</a>
 				</li>
 			</ul>
 		</div>
