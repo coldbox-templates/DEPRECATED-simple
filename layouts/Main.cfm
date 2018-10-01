@@ -9,88 +9,62 @@
 	<!---Base URL --->
 	<base href="#event.getHTMLBaseURL()#" />
 	<!---css --->
-	<link href="includes/css/bootstrap.min.css" rel="stylesheet">
-	<!---js --->
-    <script src="includes/js/jquery.js"></script>
-	<script src="includes/js/bootstrap.min.js"></script>
-	<style>
-	 /* Utility */
-	.centered { text-align: center !important; }
-	.inline{ display: inline !important; }
-	.margin10{ margin: 10px; }
-	.padding10{ padding: 10px; }
-	.margin0{ margin: 0px; }
-	.padding0{ padding: 0px; }
-	.footer {
-	  margin-top: 45px;
-	  padding: 35px 35px;
-	  border-top: 1px solid ##e5e5e5;
-	}
-	.footer p {
-	  margin-bottom: 0;
-	  color: ##555;
-	}
-	body{ padding-top: 50px; }
-	</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
-<body data-spy="scroll">
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<!---Top NavBar --->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<!---Brand --->
-			<div class="navbar-header">
-				<!---Responsive Design --->
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="##navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-				</button>
-				<!---Branding --->
-				<a class="navbar-brand" href="#event.buildLink('')#"><strong>Home</strong></a>
-			</div>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
+		<!---Brand --->
+		<a class="navbar-brand mb-0" href="#event.buildLink('')#"><strong>Home</strong></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="##navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<!---About --->
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="##" class="dropdown-toggle" data-toggle="dropdown">
-							<i class="glyphicon glyphicon-info-sign"></i> About <b class="caret"></b>
-						</a>
-						<ul id="actions-submenu" class="dropdown-menu">
-							 <li><a href=""><strong>#getSetting("codename",1)# (#getsetting("suffix",1)#)</strong></a></li>
-							 <li><a href="http://coldbox.ortusbooks.com"><i class="glyphicon glyphicon-book"></i> Help Manual</a></li>
-							 <li><a href="mailto:bugs@coldbox.org?subject=DataBoss Bug Report"><i class="glyphicon glyphicon-fire"></i> Report a Bug</a></li>
-							 <li><a href="mailto:info@coldbox.org?subject=DataBoss Feedback"><i class="glyphicon glyphicon-bullhorn"></i> Send Us Feedback</a></li>
-							 <li><a href="http://www.ortussolutions.com/products/coldbox"><i class="glyphicon glyphicon-home"></i> Professional Support</a></li>
-							 <li class="divider"></li>
-							 <li class="centered">
-							 	<img width="150" src="includes/images/ColdBoxLogo2015_300.png" alt="logo"/>
-							 </li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div> <!---end container --->
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<!---About --->
+			<ul class="nav navbar-nav ml-auto">
+				<li class="nav-item dropdown">
+					<a href="##" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-info-circle"></i> About <b class="caret"></b>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+							<a href="" class="dropdown-item text-light bg-dark"><strong>#getSetting("codename",1)# (#getsetting("suffix",1)#)</strong></a>
+							<a href="http://coldbox.ortusbooks.com" class="dropdown-item text-light bg-dark"><i class="fas fa-book"></i> Help Manual</a>
+							<a href="mailto:bugs@coldbox.org?subject=DataBoss Bug Report" class="dropdown-item text-light bg-dark"><i class="fas fa-fire"></i> Report a Bug</a>
+							<a href="mailto:info@coldbox.org?subject=DataBoss Feedback" class="dropdown-item text-light bg-dark"><i class="fas fa-bullhorn"></i> Send Us Feedback</a>
+							<a href="http://www.ortussolutions.com/products/coldbox" class="dropdown-item text-light bg-dark"><i class="fas fa-home"></i> Professional Support</a>
+							<div class="dropdown-divider"></div>
+							<img class="rounded mx-auto d-block" width="150" src="includes/images/ColdBoxLogo2015_300.png" alt="logo"/>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</nav> <!---end navbar --->
 
 	<!---Container And Views --->
 	<div class="container">#renderView()#</div>
 
-	<footer class="footer">
-		<p class="pull-right">
-			<a href="##"><i class="glyphicon glyphicon-arrow-up"></i> Back to top</a>
-		</p>
-		<p>
-			<a href="http://www.coldbox.org">ColdBox Platform</a> is a copyright-trademark software by
-			<a href="http://www.ortussolutions.com">Ortus Solutions, Corp</a>
-		</p>
-		<p>
-			Design thanks to
-			<a href="http://getbootstrap.com/">Twitter Boostrap</a>
-		</p>
+	<footer class="border-top py-3 mt-5">
+		<div class="container">
+			<p class="float-right">
+				<a href="##"><i class="fas fa-arrow-up"></i> Back to top</a>
+			</p>
+			<p>
+				<a href="http://www.coldbox.org">ColdBox Platform</a> is a copyright-trademark software by
+				<a href="http://www.ortussolutions.com">Ortus Solutions, Corp</a>
+			</p>
+			<p>
+				Design thanks to
+				<a href="http://getbootstrap.com/">Twitter Boostrap</a>
+			</p>
+		</div>
 	</footer>
 
+	<!---js --->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<script>
 	$(function() {
 		// activate all drop downs
