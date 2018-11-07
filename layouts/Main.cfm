@@ -56,7 +56,7 @@
 			</p>
 			<p>
 				Design thanks to
-				<a href="http://getbootstrap.com/">Twitter Boostrap</a>
+				<a href="http://getbootstrap.com/">Twitter Bootstrap</a>
 			</p>
 		</div>
 	</footer>
