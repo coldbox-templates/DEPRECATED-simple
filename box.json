@@ -1,7 +1,7 @@
 {
     "name":"Simple APP Template",
-    "version":"1.18.0",
-    "location":"https://github.com/coldbox-templates/simple/archive/v1.18.0.zip",
+    "version":"1.19.0",
+    "location":"https://github.com/coldbox-templates/simple/archive/v1.19.0.zip",
     "author":"You",
     "slug":"cbtemplate-simple",
     "createPackageDirectory":false,
