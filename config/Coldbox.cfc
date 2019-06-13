@@ -6,7 +6,7 @@
 		// coldbox directives
 		coldbox = {
 			//Application Setup
-			appName 				= "Your app Name Here",
+			appName 				= getSystemSetting( "APPNAME", "Your app name here" ),
 
 			//Development Settings
 			reinitPassword			= "",
