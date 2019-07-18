@@ -30,7 +30,10 @@
 
 			//Application Aspects
 			handlerCaching 			= false,
-			eventCaching			= false
+			eventCaching			= false,
+			viewCaching				= false,
+			// Will automatically do a mapDirectory() on your `models` for you.
+			autoMapModels			= true
 		};
 
 		// environment settings, create a detectEnvironment() method to detect it yourself.
