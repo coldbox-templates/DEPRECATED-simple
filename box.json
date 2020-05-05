@@ -1,9 +1,9 @@
 {
     "name":"Simple APP Template",
-    "version":"1.26.0",
-    "location":"https://github.com/coldbox-templates/simple/archive/v1.26.0.zip",
+    "version":"6.0.0-snapshot",
     "author":"You",
-    "slug":"cbtemplate-simple",
+	"location":"forgeboxStorage",
+	"slug":"cbtemplate-simple",
     "createPackageDirectory":false,
     "type":"mvc",
     "keywords":"",
@@ -18,17 +18,20 @@
     "contributors":[],
     "ignore":[],
     "devDependencies":{
-        "testbox":"^3.0.0"
+        "testbox":"^4.0.0"
     },
     "installPaths":{
         "coldbox":"coldbox",
         "testbox":"testbox"
     },
     "dependencies":{
-        "coldbox":"^5.0.0"
+        "coldbox":"be"
     },
     "scripts":{
-        "postVersion":"package set location='https://github.com/coldbox-templates/simple/archive/v`package version`.zip'",
-        "postPublish":"!git push --follow-tags"
+        "postPublish":"!git push --follow-tags",
+        "postInstall":"pathExists .env || cp .env.example .env",
+        "format":"cfformat run config/,handlers/,models/,tests/specs/,*.cfc --overwrite",
+		"format:check":"cfformat check config/,handlers/,models/,tests/specs/,*.cfc",
+		"format:watch":"cfformat watch path='config/,handlers/,models/,tests/specs/,*.cfc' settingsPath='.cfformat.json'"
     }
 }

@@ -5,17 +5,17 @@
 				<p class="text-center">
 					<img src="includes/images/ColdBoxLogo2015_300.png" class="m-2 mt-2" alt="logo"/>
 					<a class="btn btn-primary" href="https://coldbox.ortusbooks.com" target="_blank" title="Read our ColdBox Manual" rel="tooltip">
-						<strong>Read ColdBox Manual</strong>
+						<strong><i class="fab fa-readme"></i> Read The Docs!</strong>
 					</a>
 				</p>
 			</div>
-	
+
 			<div class="col-lg-7 col-md-6">
 				<h1 class="display-3">
 					#prc.welcomeMessage#
 				</h1>
 				<div class="badge badge-info mb-2">
-					<strong>#getSetting("codename",1)# #getSetting("version",1)# (#getsetting("suffix",1)#)</strong>
+					<strong>#getColdBoxSetting( "version" )# (#getColdBoxSetting( "suffix" )#)</strong>
 				</div>
 				<p class="lead">
 					Welcome to modern ColdFusion (CFML) development.  You can now start building your application with ease, we already did the hard work
@@ -24,10 +24,10 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-lg-9">
-	
+
 			<section id="eventHandlers">
 			<div class="pb-2 mt-4 mb-2 border-bottom">
 				<h2>
@@ -44,7 +44,7 @@
 				</cfloop>
 			</ul>
 			</section>
-	
+
 			<cfif structCount( getSetting("Modules") )>
 				<section id="modules">
 				<div class="pb-2 mt-4 mb-2 border-bottom">
@@ -60,14 +60,14 @@
 				</ul>
 				</section>
 			</cfif>
-	
+
 			<section id="test-harness">
 			<div class="pb-2 mt-4 mb-2">
 				<h2>
 					Application Test Harness
 				</h2>
 			</div>
-	
+
 			<table class="table table-striped">
 				<thead>
 					<th>File/Folder</th>
@@ -125,7 +125,7 @@
 				</tbody>
 			</table>
 			</section>
-	
+
 			<section id="urlActions">
 			<div class="pb-2 mt-4 mb-2 border-bottom">
 				   <h2>ColdBox URL Actions</h2>
@@ -145,13 +145,13 @@
 						</td>
 						<td>Reinitialize the Application</td>
 						<td>
-							<a class="btn btn-info" href="index.cfm?fwreinit=1">Execute</a>
+							<a class="btn btn-info" href="index.cfm?fwreinit=1"><i class="fas fa-rocket"></i> Execute</a>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			</section>
-	
+
 			<section id="customize">
 			<div class="pb-2 mt-4 mb-2 border-bottom">
 				<h2>Customizing your Application</h2>
@@ -167,7 +167,7 @@
 					<code>/config/ColdBox.cfc</code>: Your application configuration file
 				</li>
 				<li>
-					<code>/config/Routes.cfc</code>: Your URL Router
+					<code>/config/Router.cfc</code>: Your URL Router
 				</li>
 				<li>
 					<code>/config/WireBox.cfc</code>: Your WireBox Binder
@@ -205,7 +205,7 @@
 			</ol>
 			</section>
 		</div>
-	
+
 		<!---Side Bar --->
 		<div class="col-lg-3">
 			<div class="card card-block">
@@ -236,6 +236,9 @@
 						<a class="nav-link" href="https://www.ortussolutions.com/services/training" target="_blank">Training</a>
 					</li>
 					<li class="nav-item"><strong>Support</strong></li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://boxteam.herokuapp.com">Slack</a>
+					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="https://groups.google.com/group/coldbox">Mailing List</a>
 					</li>
