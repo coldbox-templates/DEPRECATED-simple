@@ -29,7 +29,7 @@
     },
     "scripts":{
         "postPublish":"!git push --follow-tags",
-        "postInstall":"pathExists .env || cp .env.example .env",
+        "postInstall":"pathExists .env || cp env.example .env && mv env.example .env.example",
         "format":"cfformat run config/,handlers/,models/,tests/specs/,*.cfc --overwrite",
 		"format:check":"cfformat check config/,handlers/,models/,tests/specs/,*.cfc",
 		"format:watch":"cfformat watch path='config/,handlers/,models/,tests/specs/,*.cfc' settingsPath='.cfformat.json'"
