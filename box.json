@@ -1,9 +1,9 @@
 {
     "name":"Simple APP Template",
-    "version":"6.0.0",
+    "version":"6.1.0",
     "author":"You",
-	"location":"forgeboxStorage",
-	"slug":"cbtemplate-simple",
+    "location":"forgeboxStorage",
+    "slug":"cbtemplate-simple",
     "createPackageDirectory":false,
     "type":"mvc",
     "keywords":"",
@@ -31,7 +31,7 @@
         "postPublish":"!git push --follow-tags",
         "postInstall":"pathExists .env || cp env.example .env && mv env.example .env.example",
         "format":"cfformat run config/,handlers/,models/,tests/specs/,*.cfc --overwrite",
-		"format:check":"cfformat check config/,handlers/,models/,tests/specs/,*.cfc",
-		"format:watch":"cfformat watch path='config/,handlers/,models/,tests/specs/,*.cfc' settingsPath='.cfformat.json'"
+        "format:check":"cfformat check config/,handlers/,models/,tests/specs/,*.cfc",
+        "format:watch":"cfformat watch path='config/,handlers/,models/,tests/specs/,*.cfc' settingsPath='.cfformat.json'"
     }
 }
