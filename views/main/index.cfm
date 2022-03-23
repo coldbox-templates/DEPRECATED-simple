@@ -1,23 +1,19 @@
 ﻿<cfoutput>
-	<div class="jumbotron mt-sm-5 p-4">
-		<div class="row">
-			<div class="col-lg-5 col-md-6">
-				<p class="text-center">
-					<img src="includes/images/ColdBoxLogo2015_300.png" class="m-2 mt-2" alt="logo"/>
-					<a class="btn btn-primary" href="https://coldbox.ortusbooks.com" target="_blank" title="Read our ColdBox Manual" rel="tooltip">
-						<strong><i class="fab fa-readme"></i> Read The Docs!</strong>
-					</a>
-				</p>
+	<div class="text-center mt-3 card shadow rounded">
+		<div class="card-body">
+			<div>
+				<img src="includes/images/ColdBoxLogo2015_300.png" class="m-2 mt-2" alt="logo" height="200"/>
+			</div>
+			<div class="badge bg-info mb-2">
+				<strong>#getColdBoxSetting( "version" )# (#getColdBoxSetting( "suffix" )#)</strong>
 			</div>
 
-			<div class="col-lg-7 col-md-6">
-				<h1 class="display-3">
-					#prc.welcomeMessage#
-				</h1>
-				<div class="badge badge-info mb-2">
-					<strong>#getColdBoxSetting( "version" )# (#getColdBoxSetting( "suffix" )#)</strong>
-				</div>
-				<p class="lead">
+			<h1 class="display-5 fw-bold">
+				#prc.welcomeMessage#
+			</h1>
+
+			<div class="col-lg-6 mx-auto">
+				<p class="lead mb-4">
 					Welcome to modern ColdFusion (CFML) development.  You can now start building your application with ease, we already did the hard work
 					for you.
 				</p>
@@ -25,231 +21,119 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-lg-9">
-
-			<section id="eventHandlers">
-			<div class="pb-2 mt-4 mb-2 border-bottom">
-				<h2>
-					Registered Event Handlers
-				</h2>
+	<div class="row py-5 row-cols-lg-2 gx-4">
+		<div class="col d-flex align-items-start">
+			<div class="bg-light text-dark flex-shrink-0 me-3 px-2 fs-2 rounded-circle shadow">
+				<i class="bi bi-broadcast"></i>
 			</div>
-			<p>
+			<div>
+				<h2>Event Handlers</h2>
+				<p>
 				You can click on the following event handlers to execute their default action
-				<span class="badge badge-danger">index()</span>
-			</p>
-			<ul>
-				<cfloop list="#getSetting("RegisteredHandlers")#" index="handler">
-				<li><a href="#event.buildLink( handler )#">#handler#</a></li>
-				</cfloop>
-			</ul>
-			</section>
-
-			<cfif structCount( getSetting("Modules") )>
-				<section id="modules">
-				<div class="pb-2 mt-4 mb-2 border-bottom">
-					<h2>
-						Registered Modules
-					</h2>
-				</div>
-				<p>Below are your application's loaded modules, click on them to visit them.</p>
-				<ul>
-					<cfloop collection="#getSetting("Modules")#" item="thisModule">
-					<li><a href="#event.buildLink( getModuleConfig( thisModule ).inheritedEntryPoint )#">#thisModule#</a></li>
+				<span class="badge bg-danger">index()</span>
+				</p>
+				<ul class="list-unstyled">
+					<cfloop list="#getSetting("RegisteredHandlers")#" index="handler">
+						<li>
+							<a href="#event.buildLink( handler )#" class="btn btn-primary btn-sm" title="Run Event">
+								<i class="bi bi-play-btn"></i> #handler#
+							</a>
+						</li>
 					</cfloop>
 				</ul>
-				</section>
-			</cfif>
-
-			<section id="test-harness">
-			<div class="pb-2 mt-4 mb-2">
-				<h2>
-					Application Test Harness
-				</h2>
 			</div>
-
-			<table class="table table-striped">
-				<thead>
-					<th>File/Folder</th>
-					<th>Description</th>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<em>specs</em>
-						</td>
-						<td>Where all your bdd, module, unit and integration tests go</td>
-					</tr>
-					<tr>
-						<td>
-							<em>results</em>
-						</td>
-						<td>Where automated test results go</td>
-					</tr>
-					<tr>
-						<td>
-							<em>resources</em>
-						</td>
-						<td>
-							Test resources like fixtures, itegrations, etc.
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<em>Application.cfc</em>
-						</td>
-						<td>A unique Application.cfc for your testing harness, please spice up as needed.</td>
-					</tr>
-					<tr>
-						<td>
-							<em>test.xml</em>
-						</td>
-						<td>A script for executing all application tests via TestBox ANT</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#getSetting( "appMapping" )#/tests/runner.cfm">
-								#getSetting( "appMapping" )#runner.cfm
-							</a>
-						</td>
-						<td>A TestBox runner so you can execute your tests.</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#getSetting( "appMapping" )#/tests/index.cfm">
-								#getSetting( "appMapping" )#index.cfm
-							</a>
-						</td>
-						<td>A TestBox browser, so you can browse and execute specs</td>
-					</tr>
-				</tbody>
-			</table>
-			</section>
-
-			<section id="urlActions">
-			<div class="pb-2 mt-4 mb-2 border-bottom">
-				   <h2>ColdBox URL Actions</h2>
-			   </div>
-			<p>ColdBox can use some very important URL actions to interact with your application. You can also use CommandBox <code>coldbox reinit</code> and reinit from the CLI. You can try them out below:</p>
-			<table class="table table-striped">
-				<thead>
-					<th>URL Action</th>
-					<th>Description</th>
-					<th>Execute</th>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<em>?fwreinit=1</em><br/>
-							<em>?fwreinit={ReinitPassword}</em>
-						</td>
-						<td>Reinitialize the Application</td>
-						<td>
-							<a class="btn btn-info" href="index.cfm?fwreinit=1"><i class="fas fa-rocket"></i> Execute</a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			</section>
-
-			<section id="customize">
-			<div class="pb-2 mt-4 mb-2 border-bottom">
-				<h2>Customizing your Application</h2>
-			</div>
-			<p>
-				You can now start editing your application and building great ColdBox enabled apps. Important files & locations:
-			</p>
-			<ol>
-				<li>
-					<code>/config/CacheBox.cfc</code>: Your CacheBox Configuration file
-				</li>
-				<li>
-					<code>/config/ColdBox.cfc</code>: Your application configuration file
-				</li>
-				<li>
-					<code>/config/Router.cfc</code>: Your URL Router
-				</li>
-				<li>
-					<code>/config/WireBox.cfc</code>: Your WireBox Binder
-				</li>
-				<li>
-					<code>/handlers</code>: Your controller event handlers
-				</li>
-				<li>
-					<code>/interceptors</code>: Global interceptors
-				</li>
-				<li>
-					<code>/includes</code>: Assets, Helpers, i18n, templates and more.
-				</li>
-				<li>
-					<code>/layouts</code>:Your application skin layouts
-				</li>
-				<li>
-					<code>/lib</code>: Where Jar files can be integrated
-				</li>
-				<li>
-					<code>/models</code>: Your model layer
-				</li>
-				<li>
-					<code>/modules</code>: Your CommandBox managed modules
-				</li>
-				<li>
-					<code>/modules_app</code>: Your application modules
-				</li>
-				<li>
-					<code>/tests</code>: Your BDD testing harness (Just DO IT!!)
-				</li>
-				<li>
-					<code>/views</code>: Your application views
-				</li>
-			</ol>
-			</section>
 		</div>
 
-		<!---Side Bar --->
-		<div class="col-lg-3">
-			<div class="card card-block">
-				<ul class="card-body nav flex-column bg-light">
-					<li class="nav-item"><strong>Important Links</strong></li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://www.coldbox.org" target="_blank">ColdBox Site</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://www.ortussolutions.com/blog" target="_blank">Blog</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://ortussolutions.atlassian.net/browse/COLDBOX" target="_blank">Issue Tracker</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://github.com/ColdBox/coldbox-platform" target="_blank">Source Code</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://coldbox.ortusbooks.com" target="_blank">Manual</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://apidocs.coldbox.org" target="_blank">Quick API Docs</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://forgebox.io" rel="tooltip" title="Community for interceptors, modules, etc." target="_blank">ForgeBox</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://www.ortussolutions.com/services/training" target="_blank">Training</a>
-					</li>
-					<li class="nav-item"><strong>Support</strong></li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://boxteam.herokuapp.com">Slack</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://groups.google.com/group/coldbox">Mailing List</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://www.coldbox.org/support/overview">Community Support</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://www.ortussolutions.com/services">Professional Support</a>
-					</li>
+		<div class="col d-flex align-items-start">
+			<div class="bg-light text-dark flex-shrink-0 me-3 px-2 fs-2 rounded-circle shadow">
+				<i class="bi bi-cpu-fill"></i>
+			</div>
+			<div>
+				<h2>Modules</h2>
+				<p>
+				Here are your registered ColdBox Modules. Click on them to open their entry point.
+				</p>
+				<ul class="list-unstyled">
+					<cfloop collection="#getSetting("Modules")#" item="thisModule">
+						<li>
+							<a href="#event.buildLink( getModuleConfig( thisModule ).inheritedEntryPoint )#" class="btn btn-primary btn-sm" title="Run Event">
+								<i class="bi bi-play-btn"></i> #thisModule#
+							</a>
+						</li>
+					</cfloop>
 				</ul>
 			</div>
 		</div>
 	</div>
+
+	<div class="row pb-5 row-cols-lg-2 gx-4">
+		<div class="col d-flex align-items-start">
+			<div class="bg-light text-dark flex-shrink-0 me-3 px-2 fs-2 rounded-circle shadow">
+				<i class="bi bi-power"></i>
+			</div>
+			<div>
+				<h2>Reinitialize ColdBox</h2>
+				<p>
+					ColdBox caches things in memory for you to increase performance.  If you make any configuration changes, add/modify modules, etc, please make sure you reinit the framework
+					so those changes take effect.  You can use the URL action shown below or CommandBox to issue a <code>coldbox reinit</code> command.
+				</p>
+				<table class="table table-striped">
+					<thead>
+						<th>URL Action</th>
+						<th width="100">Execute</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<em>?fwreinit=1</em><br/>
+								<em>?fwreinit={ReinitPassword}</em>
+							</td>
+							<td>
+								<a class="btn btn-info" href="index.cfm?fwreinit=1">
+									<i class="bi bi-power"></i> Run
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="col d-flex align-items-start">
+			<div class="bg-light text-dark flex-shrink-0 me-3 px-2 fs-2 rounded-circle shadow">
+				<i class="bi bi-card-checklist"></i>
+			</div>
+			<div>
+				<h2>Tests</h2>
+				<p>
+				Unit and integration testing are integral parts to any ColdBox application.  We have scaffolded the test harness under the <code>tests</code> folder.
+				From here you can open the <strong>Tests Browser</strong> and also execute all your tests.  Please note that you can also run all your tests via
+				CommandBox: <code>testbox run</code>. You can even start a watcher which will check for source changes and run your tests for your: <code>testbox watch</code>
+				</p>
+
+				<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+					<a
+						href="#getSetting( "appMapping" )#/tests/index.cfm"
+						class="btn btn-info btn-lg"
+						role="button"
+						target="_blank"
+					>
+						<i class="bi bi-binoculars"></i>
+						Test Browser
+					</a>
+
+					<a
+						href="#getSetting( "appMapping" )#/tests/runner.cfm"
+						class="btn btn-info btn-lg"
+						role="button"
+						target="_blank"
+					>
+						<i class="bi bi-activity"></i>
+						Test Runner
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	</cfoutput>
